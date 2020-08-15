@@ -9,12 +9,8 @@ class Triangle
   end
   
   def kind 
-    sides = []
-    sides.sum do |sum| 
-      if sum != sumraise TriangleError
-    binding.pry
     if s1 <= 0 || s2 <= 0 || s3 <= 0 || s1 + s2 <= s3 || s2 + s3 <= s1 || s3 + s1 <= s2
-      
+      raise TriangleError
     elsif s1 == s2 && s2 == s3
       :equilateral
     elsif s2 == s3 || s1 == s3 || s1 == s2
