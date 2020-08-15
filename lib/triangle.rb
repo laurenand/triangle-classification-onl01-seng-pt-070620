@@ -1,16 +1,22 @@
 class Triangle
   attr_accessor :equilateral, :isosceles, :scalene
   
-  def initialize(length1, length2, length3)
-    @length1 = length1
-    @length2 = length2
-    @length3 = length3
+  def initialize(s1, s2, s3)
+    @s1 = s1
+    @s2 = s2
+    @s3 = s3
   end
   
   def kind 
-     length1 == length2 && length2
-    @isosceles =
-    @scalene =
+     if s1 <= 0 || s2 <= 0 || s3 <= 0 || s1 + s2 <= s3 || s2 + s3 <= s1 || s3 + s1 <= s2
+      raise TriangleError
+    elsif s1 == s2 && s2 == s3
+      :equilateral
+    elsif s2 == s3 || s1 == s3 || s1 == s2
+      :isosceles
+    elsif s1 != s2 && s2 != s3
+      :scalene
+    end
   end
   
   class TriangleError < StandardError
