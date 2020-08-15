@@ -8,9 +8,9 @@ class Triangle
   end
   
   def kind 
-    equilateral
-    isosceles
-    scalene
+    @equilateral = length1 == length2 && length3
+    @isosceles =
+    @scalene =
   end
   
 end
