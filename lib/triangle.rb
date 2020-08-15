@@ -1,3 +1,4 @@
+require 'pry'
 class Triangle
   attr_accessor :s1, :s2, :s3
   
@@ -9,16 +10,8 @@ class Triangle
   
   def kind 
     sides = []
-    sides.sum {
-     if s1 <= 0 || s2 <= 0 || s3 <= 0 || s1 + s2 <= s3 || s2 + s3 <= s1 || s3 + s1 <= s2
-      raise TriangleError
-    elsif s1 == s2 && s2 == s3
-      :equilateral
-    elsif s2 == s3 || s1 == s3 || s1 == s2
-      :isosceles
-    elsif s1 != s2 && s2 != s3
-      :scalene
-    end 
+    sides.sum
+    binding.pry
   end
   
   class TriangleError < StandardError
